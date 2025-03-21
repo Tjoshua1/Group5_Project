@@ -1,11 +1,23 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Hello today is <!-- something for the date--></title> 
-        <meta charset="UTF-8">
-    </head>
-    <body>
-<!--a section to create a post-->
-<!--populate posts from db in accordance to date published top(most recent)-->
-<!--in posts add comment section, reactions thumbs up/down, emojis-->
-    </body>
+<head>
+    <title>Hello today is <span id="currentDate"></span></title>
+    <meta charset="UTF-8">
+    <!-- <script defer src="posts.js"></script> -->
+</head>
+<body>
+    <h1>Create Post</h1>
+    <form id="postForm">
+        <fieldset>
+            <label class="block">Title</label>
+            <input type="text" required="required" name="title" id="title">
+            <label class="block">Body</label>
+            <textarea rows="4" cols="50" required="required" name="body" id="body"></textarea>
+            <button type="submit">Post</button>
+        </fieldset>
+    </form>
+
+    <h2>Posts</h2>
+    <div id="postsContainer"></div>
+</body>
 </html>
