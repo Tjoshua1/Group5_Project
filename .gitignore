@@ -1,0 +1,17 @@
+# Ignore environment variables (security reasons)
+.env
+
+# Ignore node dependencies (can be installed with `npm install`)
+node_modules/
+
+# Ignore logs
+logs/
+*.log
+npm-debug.log*
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore VS Code settings (optional)
+.vscode/
