@@ -2,9 +2,22 @@
     <head>
         <title>Hello today is <!-- something for the date--></title> 
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="posts.css">
     </head>
     <body>
+    <h2> Hello today is:  <div>
+            <script>
+                const date = new Date();
+                document.write(date);
+            </script>
+        </div>
+    </h2>
 <!--a section to create a post-->
+<form action="" method="POST">
+    <fieldset>
+        <label>Create Post </label><input type="text" name="Post"/><br><br>
+    </fieldset>
+</form>
 <!--populate posts from db in accordance to date published top(most recent)-->
 <!--in posts add comment section, reactions thumbs up/down, emojis-->
     </body>
