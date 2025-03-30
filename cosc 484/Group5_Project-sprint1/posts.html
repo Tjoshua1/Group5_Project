@@ -1,0 +1,33 @@
+<html lang="en">
+    <head>
+        <title>Posts page</title> 
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="posts.css">
+    </head>
+    <body>
+    <h2> Hello TU student! Today is:  <div>
+            <script>
+                const date = new Date();
+                document.write(date);
+            </script>
+        </div>
+    </h2>
+<!--a section to create a post-->
+<form name="postCreation" method="GET" action="home.html" onsubmit = "return createPost()">
+    <fieldset>
+        <label>Subject Line:</label><input type="text" class="subject" name="PostTitle"/><br><br>
+        <label>Content:     </label><input type="text" class="content" name="PostContent"/><br><br>
+    </fieldset>
+</form>
+<script>
+    function creatingPost(){
+        var subjectLine = document.forms["text"]["PostTitle"].value;
+        var paragraph  = document.forms["text"]["PostContent"].value;
+
+        window.location.href = "home.html";
+    }
+</script>
+<!--populate posts from db in accordance to date published top(most recent)-->
+<!--in posts add comment section, reactions thumbs up/down, emojis-->
+    </body>
+</html>
