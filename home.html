@@ -39,11 +39,26 @@
     <!-- Main Content -->
     <main class="feed">
         <div class="post-box">
-            <p>Create a post here...</p>
+            <form action="posts.html" method="GET">
+            <button type=submit>Create a post here</button>
         </div>
         <div class="post-placeholder">
             <p>Post 1 (User profile, image, text, likes, comments)</p>
         </div>
+        <script>
+           function placePost(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const title = urlParams.get('PostTitle');
+            const content = urlParams.get('PostContent');
+            return {title,content};
+           }
+           const dom = placePost();
+            const logD = document.getElementById('urlParams');
+            logD.innerHTML = `
+            <p>Title: ${dom.PostTitle}</p>
+            <p>Content: ${dom.PostContent} </p>
+            `;
+        </script>
         <div class="post-placeholder">
             <p>Post 2 (User profile, image, text, likes, comments)</p>
         </div>

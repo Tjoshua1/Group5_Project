@@ -13,10 +13,11 @@
         </div>
     </h2>
 <!--a section to create a post-->
-<form name="postCreation" method="GET" action="home.html" onsubmit = "return createPost()">
+<form name="postCreation" method="POST" action="home.html" onsubmit = "return createPost()">
     <fieldset>
         <label>Subject Line:</label><input type="text" class="subject" name="PostTitle"/><br><br>
         <label>Content:     </label><input type="text" class="content" name="PostContent"/><br><br>
+        <button type="submit">Submit</button>
     </fieldset>
 </form>
 <script>
@@ -26,6 +27,8 @@
 
         window.location.href = "home.html";
     }
+
+
 </script>
 <!--populate posts from db in accordance to date published top(most recent)-->
 <!--in posts add comment section, reactions thumbs up/down, emojis-->
