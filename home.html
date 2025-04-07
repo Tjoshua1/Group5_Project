@@ -1,4 +1,4 @@
-  <!-- Guys this simply just a rough drfat which is similar to twitter -->
+  <!-- Almost done draft, similar to twitter -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,40 +10,43 @@
 </head>
 <body>
 
-<header> 
-    <div class="search-box">
-        <input type="text" placeholder="Search">
-    </div>
-    </header>
-
-    <!-- Sidebar Navigation, there was a lot sent in slack but i just went with the twitter version-->
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
-        <a href="http://example.com" class="logo-link"><!-- Pretty sure it will be a TU logo -->
-    <div class="logo"></div>
-</a>
-      <nav>
-    <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="explore.html">Explore</a></li>
-        <li><a href="notifications.html">Notifications</a></li>
-        <li><a href="messages.html">Messages</a></li>
-        <li><a href="bookmarks.html">Bookmarks</a></li>
-        <li><a href="lists.html">Lists</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="more.html">More</a></li>
-    </ul>
-</nav>
-        <button class="tweet-btn">Post</button>
+        <a href="http://example.com" class="logo-link">
+            <div class="logo"></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="bookmarks.html">Bookmarks</a></li>
+                <li><a href="lists.html">Lists</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="more.html">More</a></li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar "Post" button -->
+        <form action="posts.html" method="GET" class="post-form">
+            <button type="submit" class="post-btn">Post</button>
+        </form>
     </aside>
 
     <!-- Main Content -->
     <main class="feed">
         <div class="post-box">
-            <p>Create a post here...</p>
+            <!-- Feed "Post" button -->
+            <form action="posts.html" method="GET" class="post-form">
+                <button type="submit" class="post-btn">Create a post here</button>
+            </form>
         </div>
+
         <div class="post-placeholder">
             <p>Post 1 (User profile, image, text, likes, comments)</p>
         </div>
+
         <div class="post-placeholder">
             <p>Post 2 (User profile, image, text, likes, comments)</p>
         </div>
@@ -52,8 +55,8 @@
     <!-- Right Sidebar -->
     <aside class="trending">
         <div class="search-box">
-            <p>Search bar here</p>
-        </div>
+            <input type="text" placeholder="Search">
+        </div>        
         <div class="trending-box">
             <h3>Trends for you</h3>
             <p>Trending topic 1</p>
@@ -69,3 +72,4 @@
 
 </body>
 </html>
+
