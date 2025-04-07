@@ -1,1 +1,131 @@
+body {
+    background-color: rgb(69, 66, 66);
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    cursor: url('tucursor.jpg'), auto;
+    display: flex;
+}
+
+/* Header will not be seen because it's removed */
+header {
+    display: none;
+}
+
+/* LeftSide */
+.sidebar {
+    width: 18%;
+    min-width: 150px;
+    background-color: rgb(69, 66, 66);
+    padding: 40px 15px 20px 15px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    background-color: gold;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Shared button */
+.post-btn {
+    background-color: gold;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Main Feed */
+.feed {
+    margin-left: 20%;
+    margin-right: 22%;
+    padding: 40px 20px 20px 20px;
+    width: 58%;
+    background-color: rgb(69, 66, 66);
+}
+
+.post-box {
+    background-color: rgb(138, 133, 133);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.post-placeholder {
+    background-color: rgb(138, 133, 133);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    word-wrap: break-word;
+}
+
+/* RightSide */
+.trending {
+    width: 20%;
+    min-width: 200px;
+    background-color: rgb(69, 66, 66);
+    padding: 40px 20px 20px 20px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+    color: white;
+}
+
+/* RightSide Search */
+.trending .search-box {
+    margin-bottom: 20px;
+}
+
+.trending .search-box input[type="text"] {
+    padding: 8px 12px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* RightSide Content */
+.trending-box, .who-to-follow {
+    background-color: rgb(138, 133, 133);
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.trending-box h3, .who-to-follow h3 {
+    margin-top: 0;
+    color: gold;
+}
 
