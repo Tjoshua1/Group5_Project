@@ -58,3 +58,8 @@ h3 {
     gap: 15px; /* Adds spacing between the elements */
     align-items: center;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}

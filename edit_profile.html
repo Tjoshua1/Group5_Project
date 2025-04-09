@@ -3,21 +3,19 @@
         <head>
             <title>Edit Profile</title> 
             <meta charset="UTF-8">
-            <link rel="stylesheet" href="edit_profile.css">
+            <link rel="stylesheet" href="settings.css">
         </head>
         <body>
             <h1>Settings</h1>
             <div class="nav_bar">
-                <a>Account</a>
-                <a id="edit_profile_link" href="edit_profile.html">Edit Profile</a>
-                <a >Privacy</a>
-                <a>Notifications</a>
-                <a>Email</a>
+                <a href="Account.html">Account</a>
+                <a class="activated_link" href="edit_profile.html">Edit Profile</a>
+                <a>Privacy</a>
             </div>
            
             <br>
             <h2>General</h2>
-            <form>
+            <form id="edit_profile_form" name="edit_profile_form" method="POST">
                 <label>Display Name</label><br>
                 <input type="text" name="display_name">
                 <br>
