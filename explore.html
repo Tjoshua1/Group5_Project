@@ -1,4 +1,69 @@
-<main class="feed">
-    <h2>Explore</h2>
-    <p>Discover trending posts and topics here.</p>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore T(U)X</title>
+    <link rel="stylesheet" href="explore.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="home.html" class="logo-link">
+            <div class="logo"></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="bookmarks.html">Bookmarks</a></li>
+                <li><a href="lists.html">Lists</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="more.html">More</a></li>
+            </ul>
+        </nav>
+        <form action="posts.html" method="GET" class="post-form">
+            <button type="submit" class="post-btn">Post</button>
+        </form>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="feed">
+        <div class="search-box">
+            <input type="text" placeholder="Search T(U)X">
+        </div>
+
+        <h2>What's happening</h2>
+
+        <div class="topic">
+            <div class="topic-text">
+                <a href="#">I don’t like my CIS professor?</a>
+            </div>
+            <div class="topic-img">Image goes here</div>
+        </div>
+
+        <div class="topic">
+            <div class="topic-text">
+                <a href="#">Don’t take this professor!</a>
+            </div>
+            <div class="topic-img">Image goes here</div>
+        </div>
+
+        <div class="topic">
+            <div class="topic-text">
+                <a href="#">I love my COSC class 😍</a>
+            </div>
+            <div class="topic-img">Image goes here</div>
+        </div>
+
+        <div class="topic">
+            <div class="topic-text">
+                <a href="#">TU library after dark be lit 😭</a>
+            </div>
+            <div class="topic-img">Image goes here</div>
+        </div>
+    </main>
+
+</body>
+</html>
