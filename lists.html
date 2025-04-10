@@ -1,4 +1,56 @@
-<main class="feed">
-  <h2>Your Lists</h2>
-  <p> Organizae your favorite users or topics into lists.</p>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saved Posts - T(U)X</title>
+    <link rel="stylesheet" href="list.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <a href="home.html" class="logo-link">
+            <div class="logo"></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="notifications.html">Notifications</a></li>
+                <li><a href="messages.html">Messages</a></li>
+                <li><a href="bookmarks.html">Bookmarks</a></li>
+                <li><a href="list.html">Saved Posts</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="more.html">More</a></li>
+            </ul>
+        </nav>
+        <form action="posts.html" method="GET" class="post-form">
+            <button type="submit" class="post-btn">Post</button>
+        </form>
+    </aside>
+
+    <!-- Main Feed -->
+    <main class="feed">
+        <h2>Saved Posts</h2>
+
+        <div class="post-placeholder saved-post">
+            <p><strong>@coscqueen23</strong> — “Why does my CIS prof assign 7 videos and a paper every week 😭😭😭”</p>
+            <button class="unsave-btn">Unsave</button>
+        </div>
+
+        <div class="post-placeholder saved-post">
+            <p><strong>@dancerlyfe</strong> — “This COSC class just made me love coding 😍💻 #WomenInTech”</p>
+            <button class="unsave-btn">Unsave</button>
+        </div>
+
+        <div class="post-placeholder saved-post">
+            <p><strong>@towsonhustler</strong> — “Best study spot? Library 3rd floor. No cap.”</p>
+            <button class="unsave-btn">Unsave</button>
+        </div>
+
+        <div class="post-placeholder saved-post">
+            <p><strong>@projectmanager95</strong> — “Every group project got that one ghost member 👻😂”</p>
+            <button class="unsave-btn">Unsave</button>
+        </div>
+    </main>
+
+</body>
+</html>
