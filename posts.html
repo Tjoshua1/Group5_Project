@@ -13,7 +13,7 @@
         </div>
     </h2>
 <!--a section to create a post-->
-<form name="postCreation" method="POST" action="home.html" onsubmit = "return createPost()">
+<form name="postCreation" method = "GET" action="home.html" onsubmit = "return creatingPost()">
     <fieldset>
         <label>Subject Line:</label><input type="text" class="subject" name="PostTitle"/><br><br>
         <label>Content:     </label><input type="text" class="content" name="PostContent"/><br><br>
@@ -22,9 +22,11 @@
 </form>
 <script>
     function creatingPost(){
-        var subjectLine = document.forms["text"]["PostTitle"].value;
-        var paragraph  = document.forms["text"]["PostContent"].value;
-
+        var subjectLine = document.forms["postCreation"]["PostTitle"].value;
+        var paragraph  = document.forms["postCreation"]["PostContent"].value;
+        
+        sessionStorage.setItem("PostTitle", title);
+        sessionStorage.setItem("PostContent", content);
         window.location.href = "home.html";
     }
 

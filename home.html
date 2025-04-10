@@ -43,8 +43,7 @@
             <button type=submit>Create a post here</button>
         </div>
         <div class="post-placeholder">
-            <p>Post 1 (User profile, image, text, likes, comments)</p>
-        </div>
+        <div id="urlParams">
         <script>
            function placePost(){
             const urlParams = new URLSearchParams(window.location.search);
@@ -55,10 +54,11 @@
            const dom = placePost();
             const logD = document.getElementById('urlParams');
             logD.innerHTML = `
-            <p>Title: ${dom.PostTitle}</p>
-            <p>Content: ${dom.PostContent} </p>
+            <p>Title: ${dom.title}</p>
+            <p>Content: ${dom.content} </p>
             `;
         </script>
+        </div>
         <div class="post-placeholder">
             <p>Post 2 (User profile, image, text, likes, comments)</p>
         </div>
