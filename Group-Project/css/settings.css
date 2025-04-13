@@ -1,0 +1,78 @@
+.nav_bar {
+  width: 100vw;
+  background-color: #f0f0f0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around; 
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    border-bottom: 2px solid black;
+}
+
+.activated_link{
+    border-bottom: 2px solid black;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+}
+
+.edit_profile_pic{
+  display: flex;
+  align-items: center; 
+  gap: 1rem;
+  margin-top: 10px;
+  background-color: lightgray;
+  width: 30%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button{
+    border-radius: 5px;
+    background-color: gold;
+    color: white;
+}
+
+input{
+    border-radius: 5px;
+    width: 30%;
+    
+}
+
+textarea{
+    border-radius: 5px;
+    width: 30%;
+}
+
+#submit{
+    width: 20%;
+    margin-top: 10px;
+    background-color: gold;
+    color: white;
+}
+
+/* #upload {
+    border-radius: 5px;
+    background-color: gold;
+    color: white;
+} */
+body{
+    font-family: Arial, sans-serif;
+    background-color: rgb(69, 66, 66);
+    color: lightgrey;
+}
+
+form {
+ margin: 10px;
+}
+

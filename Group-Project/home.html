@@ -1,0 +1,74 @@
+  <!-- Almost done draft, similar to twitter -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> T(U)X</title> <!-- T:Towson, U: University, U: User, X:Experience-->
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <a href="http://example.com" class="logo-link">
+            <div class="logo"></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="lists.html">Lists</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Sidebar "Post" button -->
+        <form action="posts.html" method="GET" class="post-form">
+            <button type="submit" class="post-btn">Post</button>
+        </form>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="feed">
+        <div class="post-box">
+            <!-- Feed "Post" button -->
+            <form action="posts.html" method="GET" class="post-form">
+                <button type="submit" class="post-btn">Create a post here</button>
+            </form>
+        </div>
+
+        <div class="post-placeholder">
+            <p>Post 1 (User profile, image, text, likes, comments)</p>
+        </div>
+
+        <div class="post-placeholder">
+            <p>Post 2 (User profile, image, text, likes, comments)</p>
+        </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="trending">
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+        </div>        
+        <div class="trending-box">
+            <h3>Trends for you</h3>
+            <p>Trending topic 1</p>
+            <p>Trending topic 2</p>
+            <p>Trending topic 3</p>
+        </div>
+        <div class="who-to-follow">
+            <h3>Who to follow</h3>
+            <p>Suggested user 1</p>
+            <p>Suggested user 2</p>
+        </div>
+    </aside>
+
+    <script src="home.js"></script>
+
+</body>
+</html>
+
