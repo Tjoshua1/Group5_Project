@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const path = require('path');
 const Student = require('./models/Student');
+const Post = require("./models/Post");
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -34,6 +35,29 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // Test route
+app.get('/posts', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'posts.html'));
+});
+
+app.post('/posts', async (req, res) => {
+  const {subject, content} = req.body;
+  try{
+    const post = new Post({subject, content})
+    await post.save();
+    // res.send("Student registered successfully!")
+    res.redirect('/home');
+  }catch(err) {
+    console.error(err);
+    res.status(500).send('Error saving post');
+  }
+});
+
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'home.html'));
+});
+app.post('/home', (req, res) => {
+  res.redirect('/home');
+});
 app.get('/log_in',  (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'log_in.html'));
 });
@@ -57,7 +81,4 @@ app.post('/sign_up', async (req, res) => {
     console.error(err);
     res.status(500).send('Error saving user');
   }
-  
-
-
 });
