@@ -8,19 +8,22 @@
         <body>
             <div class="log_div">
             <h1>Log In</h1>
-            <form form id="log_in" name="log_in" method="POST" action="/home">
+            <form id="log_in" name="log_in">
                 <fieldset>
                     <label class="block">Username:</label>
-                    <input type="text" required="required" name="username"/>
+                    <input type="text" required="required" id="username" name="username"/>
                     <label class="block" >Password:</label>
                     <input class="block" id="password" type="password" required="required" name="password"/>
                     <input class="block" id="submit" type ="submit" value="submit"/>
                 </fieldset>
             </form>
+            <p id="error-message" style="color: red;"></p>
+
             </div>
             <div class="alt">
                 <p>New here?</p>
                 <a href="/sign_up">sign_up</a>
             </div>
+        <script src="/log_in.js"></script>
         </body>
     </html>

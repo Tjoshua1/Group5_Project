@@ -7,13 +7,21 @@ const Student = require('./models/Student');
 const Post = require("./models/Post");
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI;
+const session = require('express-session');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use(express.static(path.join(__dirname, '..', 'css')));
 app.use(express.static(path.join(__dirname, '..', 'js')));
-
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
 
 
 
@@ -70,7 +78,23 @@ app.post('/home', (req, res) => {
 });
 app.get('/log_in',  (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'log_in.html'));
+  
 });
+
+app.post('/log_in', async (req, res) => {
+  const { username, password } = req.body;
+
+  // Find user in the database
+  const student = await Student.findOne({ username });
+
+  if (student && student.password === password) {
+      req.session.userId = student._id; // Save user ID in session
+      res.json({ message: 'Logged in' }); // Send success message
+  } else {
+      res.status(401).json({ error: 'Invalid credentials' }); // Send error message
+  }
+});
+
 app.get("/api", (req, res) => {
   res.json({ message: "Welcome to Tap in @TU Server!" });
 });
