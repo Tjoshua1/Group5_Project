@@ -35,6 +35,16 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // Test route
+
+app.get('/post_display', async (req, res) => {
+  try {
+    const posts = await Post.find();
+    res.json(posts);  // Sends post data as JSON
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/posts', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'posts.html'));
 });
