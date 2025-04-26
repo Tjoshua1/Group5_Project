@@ -103,34 +103,13 @@ app.get('/sign_up', async (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'sign_up.html'));
 })
 
-// app.post('/sign_up', async (req, res) => {
-//   const {username, email, password} = req.body;
-
-//   const testUser = await Student.findOne({ username });
-  
-//     // console.log("username already taken")
-//     // res.status(401).json({message: "Username already taken"});
- 
-//     try{
-//       const student = new Student({username, email, password})
-//       await student.save();
-//       // res.send("Student registered successfully!")
-//       res.redirect('/log_in');
-//     }catch(err) {
-//       console.error(err);
-//       res.status(500).send('Error saving user');
-//     }
-  
-
- 
-// });
-
 app.post('/sign_up', async (req, res) => {
   const {username, email, password} = req.body;
 
-  const testUser = await Student.findOne({ username });
+  const testUser = await Student.findOne({username});
+  const testEmail = await Student.findOne({email});
   
-    if(!testUser){
+    if(!testUser && !testEmail){
       try{
         const student = new Student({username, email, password})
         await student.save();
@@ -143,8 +122,12 @@ app.post('/sign_up', async (req, res) => {
       }
     
     }
-    else{
+    else if(testUser){
       console.log("username already taken")
       res.status(401).json({error: "Username already taken"});
+    }
+    else if(testEmail){
+      console.log("email already has an account")
+      res.status(401).json({error: "email already has an account"});
     }
 });
