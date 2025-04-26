@@ -103,16 +103,48 @@ app.get('/sign_up', async (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'sign_up.html'));
 })
 
+// app.post('/sign_up', async (req, res) => {
+//   const {username, email, password} = req.body;
+
+//   const testUser = await Student.findOne({ username });
+  
+//     // console.log("username already taken")
+//     // res.status(401).json({message: "Username already taken"});
+ 
+//     try{
+//       const student = new Student({username, email, password})
+//       await student.save();
+//       // res.send("Student registered successfully!")
+//       res.redirect('/log_in');
+//     }catch(err) {
+//       console.error(err);
+//       res.status(500).send('Error saving user');
+//     }
+  
+
+ 
+// });
+
 app.post('/sign_up', async (req, res) => {
   const {username, email, password} = req.body;
 
-  try{
-    const student = new Student({username, email, password})
-    await student.save();
-    // res.send("Student registered successfully!")
-    res.redirect('/log_in');
-  }catch(err) {
-    console.error(err);
-    res.status(500).send('Error saving user');
-  }
+  const testUser = await Student.findOne({ username });
+  
+    if(!testUser){
+      try{
+        const student = new Student({username, email, password})
+        await student.save();
+        // res.send("Student registered successfully!")
+        // res.redirect('/log_in');
+        res.json({message: "signed up"});
+      }catch(err) {
+        console.error(err);
+        res.status(500).json({error:'Error saving user'});
+      }
+    
+    }
+    else{
+      console.log("username already taken")
+      res.status(401).json({error: "Username already taken"});
+    }
 });

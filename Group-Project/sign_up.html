@@ -8,7 +8,8 @@
         <body>
             <div class="sign_Div">
             <h1>Sign Up</h1>
-                <form id="sign_up" name="sign_up" method="POST" action="sign_up" onsubmit="return validate()">
+                <!-- <form id="sign_up" name="sign_up" method="POST" action="sign_up" onsubmit="return validate()"> -->
+                <form id="sign_up" name="sign_up">
                     <fieldset>
                         <label class="block">Username:</label>
                         <input type="text" required="required" name="username"/>
@@ -21,6 +22,7 @@
                         <input class="block" id="submit" type="submit" value="Submit"/>
                     </fieldset>
                 </form>
+                <p id="error-message" style="color: red;"></p>
             </div>
             <div class="alt">
                 <p>Already have an account?</p>
