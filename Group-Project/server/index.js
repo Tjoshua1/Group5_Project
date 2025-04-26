@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '..', 'css')));
 app.use(express.static(path.join(__dirname, '..', 'js')));
+app.use(express.static(path.join(__dirname, '..', 'images')))
 app.use(session({
   secret: 'your-secret-key',
   resave: false,
@@ -44,6 +45,9 @@ mongoose.connect(MONGODB_URI, {
 
 // Test route
 
+app.get('/profile', async (req, res) =>{
+  res.sendFile(path.join(__dirname, '..', 'profile.html'));
+})
 app.get('/post_display', async (req, res) => {
   try {
     const posts = await Post.find();

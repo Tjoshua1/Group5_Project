@@ -63,3 +63,11 @@ a {
     text-decoration: none;
     color: white;
 }
+
+.post-placeholder {
+    background-color: rgb(138, 133, 133);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    word-wrap: break-word;
+}
