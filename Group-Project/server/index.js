@@ -58,6 +58,22 @@ app.post('/sign_up', async (req, res) => {
     res.status(500).send('Error saving user');
   }
   
+});
 
+app.get('/posts', async (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'posts.html'));
+})
 
+app.post('/posts', async (req, res) => {
+  const {subject, content} = req.body;
+
+  try{
+    const post = new Post({subject, content})
+    await post.save();
+    res.redirect('/home');
+  }catch(err) {
+    console.error(err);
+    res.status(500).send('Error posting');
+  }
+  
 });

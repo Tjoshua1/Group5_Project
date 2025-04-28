@@ -19,7 +19,16 @@
         <button type="submit">Submit</button>
     </fieldset>
 </form>
-<script  src="/posts.js">
+<script> 
+ function creatingPost(){
+    var subjectLine = document.forms["postCreation"]["PostTitle"].value;
+    var paragraph  = document.forms["postCreation"]["PostContent"].value;
+    
+    sessionStorage.setItem("PostTitle", title);
+    sessionStorage.setItem("PostContent", content);
+    window.location.href = "home.html";
+}
+
 </script>
     </body>
 </html>
