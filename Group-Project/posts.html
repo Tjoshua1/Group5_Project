@@ -2,7 +2,7 @@
     <head>
         <title>Posts page</title> 
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="posts.css">
+        <link rel="stylesheet" href="./posts.css">
     </head>
     <body>
     <h2> Hello TU student! Today is:  <div>
@@ -12,7 +12,6 @@
             </script>
         </div>
     </h2>
-<!--a section to create a post-->
 <form name="postCreation" method = "GET" action="home.html" onsubmit = "return creatingPost()">
     <fieldset>
         <label>Subject Line:</label><input type="text" class="subject" name="PostTitle"/><br><br>
@@ -20,19 +19,7 @@
         <button type="submit">Submit</button>
     </fieldset>
 </form>
-<script>
-    function creatingPost(){
-        var subjectLine = document.forms["postCreation"]["PostTitle"].value;
-        var paragraph  = document.forms["postCreation"]["PostContent"].value;
-        
-        sessionStorage.setItem("PostTitle", title);
-        sessionStorage.setItem("PostContent", content);
-        window.location.href = "home.html";
-    }
-
-
+<script  src="/posts.js">
 </script>
-<!--populate posts from db in accordance to date published top(most recent)-->
-<!--in posts add comment section, reactions thumbs up/down, emojis-->
     </body>
 </html>
