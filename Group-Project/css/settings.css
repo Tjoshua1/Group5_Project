@@ -76,3 +76,9 @@ form {
  margin: 10px;
 }
 
+.privacy_view_options, .privacy_dm_options {
+    border: 1px solid #000; /* Black border */
+    padding: 10px;         /* Add some padding inside the border */
+    margin-bottom: 10px;   /* Add space below each section */
+    border-radius: 5px;    /* Optional: Rounded corners */
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Account Settings</title> 
+            <meta charset="UTF-8">
+            <link rel="stylesheet" href="settings.css">
+        </head>
+        <body>
+            <h1>Settings</h1>
+            <div class="nav_bar">
+                <a href="edit_profile.html">Account</a>
+                <a href="edit_profile.html">Edit Profile</a>
+                <a class="activated_link" href="privacy.html">Privacy</a>
+            </div>
+           
+            <br>
+            <form  id="account_form" name="account_form" method="POST">
+                <h2>General</h2>
+                <div class="privacy_view">
+                    <label>Account View</label><br>
+                    <div class="privacy_view_options">
+                        <input type="radio" id="public" name="account_view" value="public">
+                        <label for="public">Public</label><br>
+                        <input type="radio" id="private" name="account_view" value="private">
+                        <label for="private">Private</label><br>
+                    </div>
+                    <label>Direct Messages</label><br>
+                    <div class="privacy_dm_options">
+                        <input type="radio" id="dm_everyone" name="dm_view" value="everyone">
+                        <label for="dm_public">Everyone</label><br>
+                        <input type="radio" id="dm_followers" name="dm_view" value="followers">
+                        <label for="dm_followers">Followers Only</label><br>
+                        <input type="radio" id="dm_no_one" name="dm_view" value="no_one">
+                        <label for="dm_no_one">No One</label><br>
+                    </div>
+                    
+                
+            </form>
+           
+        </body>
+    </html>
