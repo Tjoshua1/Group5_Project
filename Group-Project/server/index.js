@@ -44,7 +44,42 @@ mongoose.connect(MONGODB_URI, {
 });
 
 // Test route
+app.post('/posts', async (req, res) => {
+  const userID = req.session.userId;
+  const student = await Student.findOne({userID})
+  const username = student.username;
 
+  const {subject, content} = req.body;
+  try{
+    const post = new Post({username, subject, content})
+    await post.save();
+    // res.send("Student registered successfully!")
+    res.redirect('/home');
+  }catch(err) {
+    console.error(err);
+    res.status(500).send('Error saving post');
+  }
+});
+
+app.get('/username_display', async (req, res)=> {
+  console.log('Session contents:', req.session); 
+  const userId = req.session.userId;
+  if (!userId) return res.status(401).json({ error: 'Not logged in' });
+  try {
+    const student = await Student.findById(userId);
+    if (!student) return res.status(404).json({ error: 'User not found' });
+
+    res.json({ username: student.username });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+  // const student = await Student.findOne({userID});
+  // const username = student.username;
+  // res.json({username: student.username});
+
+
+});
 app.get('/profile', async (req, res) =>{
   res.sendFile(path.join(__dirname, '..', 'profile.html'));
 })
@@ -61,18 +96,7 @@ app.get('/posts', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'posts.html'));
 });
 
-app.post('/posts', async (req, res) => {
-  const {subject, content} = req.body;
-  try{
-    const post = new Post({subject, content})
-    await post.save();
-    // res.send("Student registered successfully!")
-    res.redirect('/home');
-  }catch(err) {
-    console.error(err);
-    res.status(500).send('Error saving post');
-  }
-});
+
 
 app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'home.html'));

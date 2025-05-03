@@ -44,9 +44,11 @@ fetch('http://localhost:3001/post_display')
     const postDiv = document.createElement('div');
     postDiv.className = 'post-placeholder';
     postDiv.innerHTML = `
+      <div class="username">${post.username}</div>
       <div class="title">${post.subject}</div>
       <div class="content">${post.content}</div>
     `;
+   
     container.appendChild(postDiv);
   });
 })
