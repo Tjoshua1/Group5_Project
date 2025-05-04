@@ -81,6 +81,23 @@ app.get('/log_in',  (req, res) => {
   
 });
 
+app.get('/posts',  (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'posts.html'));
+  
+});
+
+app.post('/posts', async (req, res) => {
+  const {subject, content} = req.body;
+  try{
+    const post = new Post({subject, content})
+    await post.save();
+    res.redirect('/home');
+  }catch(err) {
+    console.error(err);
+    res.status(500).send('Error saving post');
+  }
+});
+
 app.post('/log_in', async (req, res) => {
   const { username, password } = req.body;
 
