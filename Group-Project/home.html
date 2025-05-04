@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> T(U)X</title> <!-- T:Towson, U: University, U: User, X:Experience-->
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./home.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
         </nav>
 
         <!-- Sidebar "Post" button -->
-        <form action="posts.html" method="GET" class="post-form">
+        <form action="/posts" method="GET" class="post-form">
             <button type="submit" class="post-btn">Post</button>
         </form>
     </aside>
@@ -34,29 +34,20 @@
     <!-- Main Content -->
     <main class="feed">
         <div class="post-box">
-            <form action="posts.html" method="GET">
-            <button type=submit>Create a post here</button>
+            <!-- Feed "Post" button -->
+            <form action="/posts" method="GET" class="post-form">
+                <button type="submit" class="post-btn">Create a post here</button>
+            </form>
         </div>
-        <div class="post-placeholder">
-        <div id="urlParams">
-        <script>
-           function placePost(){
-            const urlParams = new URLSearchParams(window.location.search);
-            const title = urlParams.get('PostTitle');
-            const content = urlParams.get('PostContent');
-            return {title,content};
-           }
-           const dom = placePost();
-            const logD = document.getElementById('urlParams');
-            logD.innerHTML = `
-            <p>Title: ${dom.title}</p>
-            <p>Content: ${dom.content} </p>
-            `;
-        </script>
+       
+        <div id="posts-container"></div>
+
+        <!-- <div class="post-placeholder">
+            <p>Post 1 (User profile, image, text, likes, comments)</p>
         </div>
         <div class="post-placeholder">
             <p>Post 2 (User profile, image, text, likes, comments)</p>
-        </div>
+        </div> -->
     </main>
 
     <!-- Right Sidebar -->
@@ -77,7 +68,7 @@
         </div>
     </aside>
 
-    <script src="home.js"></script>
+    <script src="/home.js"></script>
 
 </body>
 </html>

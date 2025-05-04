@@ -12,23 +12,27 @@
             </script>
         </div>
     </h2>
-<form name="postCreation" method = "GET" action="home.html" onsubmit = "return creatingPost()">
+<!--a section to create a post-->
+<form name="postCreation" method = "POST" action="/posts" >
     <fieldset>
-        <label>Subject Line:</label><input type="text" class="subject" name="PostTitle"/><br><br>
-        <label>Content:     </label><input type="text" class="content" name="PostContent"/><br><br>
+        <label>Subject Line:</label><input type="text" class="subject" name="subject"/><br><br>
+        <label>Content:     </label><input type="text" class="content" name="content"/><br><br>
         <button type="submit">Submit</button>
     </fieldset>
 </form>
-<script> 
- function creatingPost(){
-    var subjectLine = document.forms["postCreation"]["PostTitle"].value;
-    var paragraph  = document.forms["postCreation"]["PostContent"].value;
-    
-    sessionStorage.setItem("PostTitle", title);
-    sessionStorage.setItem("PostContent", content);
-    window.location.href = "home.html";
-}
+<script>
+    function creatingPost(){
+        var subjectLine = document.forms["postCreation"]["PostTitle"].value;
+        var paragraph  = document.forms["postCreation"]["PostContent"].value;
+        
+        sessionStorage.setItem("PostTitle", title);
+        sessionStorage.setItem("PostContent", content);
+        window.location.href = "home.html";
+    }
+
 
 </script>
+<!--populate posts from db in accordance to date published top(most recent)-->
+<!--in posts add comment section, reactions thumbs up/down, emojis-->
     </body>
 </html>
