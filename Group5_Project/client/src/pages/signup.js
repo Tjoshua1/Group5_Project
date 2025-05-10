@@ -70,6 +70,7 @@ function SignUp() {
 
       if (response.ok) {
         alert(`Welcome, ${username}!`);
+        console.log("Home called");
         navigate('/home');
       } else {
         alert(data.message || 'Signup failed');
