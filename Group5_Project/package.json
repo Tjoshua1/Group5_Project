@@ -1,0 +1,37 @@
+{
+    "name": "group5_project",
+    "version": "1.0.0",
+    "description": "Full-stack Group5 project with React and Express",
+    "main": "index.js",
+    "scripts": {
+        "client": "cd client && npm start",
+        "server": "cd backend && npm start",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "body-parser": "^1.19.0",
+        "browserify-zlib": "^0.2.0",
+        "buffer": "^6.0.3",
+        "concurrently": "^6.5.1",
+        "cors": "^2.8.5",
+        "detect-port": "^2.1.0",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.2",
+        "mongoose": "^6.0.0",
+        "multer": "^1.4.4",
+        "multer-gridfs-storage": "^5.0.2",
+        "path-browserify": "^1.0.1",
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0",
+        "react-scripts": "^5.0.1",
+        "stream-browserify": "^3.0.0",
+        "util": "^0.12.5"
+    },
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "author": "Tony",
+    "license": "MIT"
+}
