@@ -1,5 +1,5 @@
-const BASE_USER_URL = 'http://localhost:5000/api/user';
-const BASE_POST_URL = 'http://localhost:5000/api/post';
+const BASE_USER_URL = 'https://tap-in.onrender.com/api/user';
+const BASE_POST_URL = 'https://tap-in.onrender.com/api/post';
 
 // Helper for JSON POST requests
 async function postRequest(endpoint, body, baseUrl = BASE_USER_URL) {
