@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://tapin14.vercel.app/',
+  origin: 'https://tapin15.vercel.app',
   credentials: true
 }));
 app.use(express.json());
