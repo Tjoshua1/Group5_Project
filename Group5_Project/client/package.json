@@ -15,8 +15,6 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
-            "start": "bun server.js", 
-    "build": "echo 'No build step for backend'"
     },
     "proxy": "https://tap-in.onrender.com",
     "eslintConfig": {

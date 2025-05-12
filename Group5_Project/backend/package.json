@@ -4,8 +4,8 @@
     "description": "Backend for the Group5 project",
     "main": "server.js",
     "scripts": {
-    "start": "bun server.js", 
-    "build": "echo 'No build step for backend'"
+      "start": "node server.js",
+      "dev": "nodemon server.js"
     },
     "dependencies": {
       "express": "^4.17.1",
