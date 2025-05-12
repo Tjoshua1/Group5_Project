@@ -24,16 +24,19 @@ function Sidebar() {
 
     const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    try {
-      alert('Logging Out');
-      await logoutUser();
-      navigate('/');
-      alert('Back to Landing');
-    } catch (err) {
-      console.error('Logout failed:', err);
-    }
-  };
+const handleLogout = async () => {
+  try {
+    await logoutUser();
+
+    alert('Successfully logged out!');
+    localStorage.removeItem('authToken'); 
+    navigate('/'); 
+  } catch (err) {
+    console.error('Logout failed:', err);
+    alert('Logout failed. Please try again later.');
+  }
+};
+
 
   return (
     <aside className="sidebar">

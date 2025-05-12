@@ -26,6 +26,18 @@ router.post('/signup', async (req, res) => {
   }
 });
 
+router.post('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Logout error:', err);
+      return res.status(500).json({ message: 'Logout failed' });
+    }
+    res.clearCookie('connect.sid');
+    res.status(200).json({ message: 'Logout successful' });
+  });
+});
+
+
 // Create post via session (not used by frontend formData flow)
 router.post('/posts', async (req, res) => {
   const userID = req.session.userId;

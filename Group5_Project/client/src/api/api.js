@@ -115,24 +115,21 @@ export async function getPosts() {
   }
 }
 
-export async function logoutUser() {
+export const logoutUser = async () => {
   try {
     const response = await fetch(`${BASE_USER_URL}/logout`, {
       method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-             // credentials: 'include',
-      },
+      credentials: 'include',  // Include cookies for session management
     });
 
     if (!response.ok) {
-      throw new Error('Logout failed');
+      throw new Error('Logout request failed');
     }
 
-    return await response.json();
+    return response.json();  // Return the JSON response to handle success message
   } catch (err) {
-    throw err;
+    console.error('API logout error:', err);
+    throw new Error('Logout request failed');
   }
-}
+};
 
