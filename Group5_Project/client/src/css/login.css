@@ -10,34 +10,6 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
-
-input[type="text"],
-input[type="password"],
-input[type="submit"] {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    background-color: #333;
-    color: antiquewhite;
-    border: 1px solid #555;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
-
-input[type="submit"] {
-    background-color: rgb(218, 165, 32);
-    color: white;
-    cursor: pointer;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 30px;
-    border: none;
-}
-
-input[type="submit"]:hover {
-    background-color: rgb(218, 140, 32);
-}
-
 .log_div {
     width: 100%;
     max-width: 400px;

@@ -1,12 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import '../css/sidebar.css';
+import { logoutUser } from '../api/api';
 
 function Sidebar() {
+    const [username, setUsername] = useState('');
+  
+  useEffect(() => {
+    fetch('http://localhost:5000/username_display', {
+      method: 'GET',
+      credentials: 'include',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.username) {
+          setUsername(data.username);
+        }
+      })
+      .catch((err) => {
+        console.error('Error fetching username:', err);
+      });
+  }, []);
+
+    const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      alert('Logging Out');
+      await logoutUser();
+      navigate('/');
+      alert('Back to Landing');
+    } catch (err) {
+      console.error('Logout failed:', err);
+    }
+  };
+
   return (
     <aside className="sidebar">
       <Link to="/" className="logo-link">
         <div className="logo"></div>
       </Link>
+      <div className="username-display">
+      <Link to="/Account">{username}</Link>
+      </div>
       <nav>
         <ul>
           <li><Link to="/home">Home</Link></li>
@@ -16,9 +52,13 @@ function Sidebar() {
           <li><Link to="/Account">Account Settings</Link></li>
         </ul>
       </nav>
-      <Link to="/createPosts">
-        <button className="post-btn">Post</button>
-      </Link>
+<Link to="/createPosts">
+  <button className="post-btn">Post</button>
+</Link>
+
+<button className="post-btn" onClick={handleLogout} style={{ marginTop: '20px' }}>
+  Logout
+</button>
     </aside>
   );
 }

@@ -149,3 +149,17 @@ a:hover {
     text-decoration: underline;
 
 }
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nav_bar a:hover {
+    background-color: #555;
+}

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,  useRef } from 'react';
 import Post from './Post.js';
-import '../css/explore.css';
 
 function PostFeed({ searchQuery }) {
   const [posts, setPosts] = useState([]);
@@ -19,10 +18,19 @@ function PostFeed({ searchQuery }) {
     fetchPosts();
   }, [searchQuery]);
 
-  return (
-    <div className="post-feed">
-      {posts.filter(post => (post.subject || "").toLowerCase().includes(searchQuery.toLowerCase()))
-        .map(post => (
+    const feedRef = useRef(null);
+
+  useEffect(() => {
+    if (feedRef.current) {
+      feedRef.current.scrollTop = 0;
+    }
+  }, [posts]);
+
+return (
+  <div className="post-feed" ref={feedRef}>
+    {posts
+      .filter(post => (post.subject || "").toLowerCase().includes(searchQuery.toLowerCase()))
+      .map(post => (
         <Post 
           key={post._id}
           username={post.username}
@@ -30,9 +38,9 @@ function PostFeed({ searchQuery }) {
           content={post.content}
           imagePath={post.imagePath}
         />
-      ))}
-    </div>
-  );
+    ))}
+  </div>
+);
 }
 
 export default PostFeed;

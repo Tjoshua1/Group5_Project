@@ -8,6 +8,7 @@ async function postRequest(endpoint, body, baseUrl = BASE_USER_URL) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
+      credentials: 'include',
     });
 
     const data = await response.json();
@@ -25,6 +26,23 @@ async function putRequest(endpoint, body) {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
+      credentials: 'include',
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'An error occurred');
+    return data;
+  } catch (err) {
+    throw err;
+  }
+}
+async function signInRequest(endpoint, body, baseUrl = BASE_USER_URL) {
+  try {
+    const response = await fetch(`${BASE_USER_URL}${endpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      credentials: 'include',
     });
 
     const data = await response.json();
@@ -35,26 +53,6 @@ async function putRequest(endpoint, body) {
   }
 }
 
-//Get Username
-export async function getUserProfile() {
-  try {
-    const response = await fetch(`${BASE_USER_URL}/profile`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        // 'Authorization': `Bearer ${token}` // If using JWT
-      },
-    });
-
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.message || 'Failed to fetch profile');
-    return data;
-  } catch (err) {
-    throw err;
-  }
-}
-
-
 // Helper for DELETE requests
 async function deleteRequest(endpoint, body) {
   try {
@@ -62,6 +60,7 @@ async function deleteRequest(endpoint, body) {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
+      credentials: 'include',
     });
 
     const data = await response.json();
@@ -78,7 +77,7 @@ export async function loginUser(credentials) {
 }
 
 export async function signupUser(userInfo) {
-  return await postRequest('/signup', userInfo);
+  return await signInRequest('/signup', userInfo);
 }
 
 export async function changePassword(passwordInfo) {
@@ -115,3 +114,25 @@ export async function getPosts() {
     throw err;
   }
 }
+
+export async function logoutUser() {
+  try {
+    const response = await fetch(`${BASE_USER_URL}/logout`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+             // credentials: 'include',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Logout failed');
+    }
+
+    return await response.json();
+  } catch (err) {
+    throw err;
+  }
+}
+

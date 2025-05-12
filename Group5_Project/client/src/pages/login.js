@@ -32,8 +32,8 @@ function Login() {
 
     try {
       const data = await loginUser(formData);
-      if (data) {  
-      alert('Welcome back!');
+      if (data) {
+        alert(`Welcome, ${formData.username}!`);
       navigate('/home');
       }
     } catch (err) {
@@ -69,13 +69,13 @@ function Login() {
               value={formData.password}
               onChange={handleChange}
             />
-            <input
-              className="block"
-              id="submit"
-              type="submit"
-              value={loading ? 'Logging in...' : 'Submit'}
-              disabled={loading}
-            />
+<button
+  className="block"
+  type="submit"
+  disabled={loading}
+>
+  {loading ? 'Logging in...' : 'Submit'}
+</button>
           </fieldset>
         </form>
         {error && <div className="error-message">{error}</div>}

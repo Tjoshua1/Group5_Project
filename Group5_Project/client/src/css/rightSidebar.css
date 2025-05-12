@@ -1,0 +1,84 @@
+/* Right Side Panel */
+
+.trending {
+
+    width: 20%;
+        height: 100vh;
+
+    position: fixed;
+
+    top: 0;
+
+    min-width: 200px;
+
+    background-color: #333;
+
+    padding: 40px 20px 20px 20px;
+
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    overflow-y: auto;
+
+    color: black;
+
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+
+}
+
+ 
+
+/* Right Search Box */
+
+.trending .search-box {
+
+    margin-bottom: 20px;
+
+}
+
+ 
+
+.trending .search-box input[type="text"] {
+
+    padding: 8px 12px;
+
+    width: 100%;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+}
+
+ 
+
+/* Cards in Right Panel */
+
+.trending-box, .who-to-follow {
+
+    background-color: #ffffff;
+
+    margin-bottom: 20px;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+}
+
+ 
+
+.trending-box h3, .who-to-follow h3 {
+
+    margin-top: 0;
+
+    color: #ffcc00;
+
+}

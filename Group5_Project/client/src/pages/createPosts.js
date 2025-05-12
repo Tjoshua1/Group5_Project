@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/posts.css';
 
 function CreatePosts() {
@@ -70,7 +71,14 @@ function CreatePosts() {
   };
 
   return (
-    <div className="create-post-container">
+    <div>
+        <div className="nav_bar">
+          <Link to="/Account">Account Settings</Link>
+          <Link to="/editprofile">Edit Profile</Link>
+          <Link to="/privacy">Privacy Settings</Link>
+          <Link to="/home">Home</Link>
+        </div>
+        <div className="create-post-container">
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
@@ -99,6 +107,7 @@ function CreatePosts() {
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {successMessage && <p className="success-message">{successMessage}</p>}
+    </div>
     </div>
   );
 }

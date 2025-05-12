@@ -37,6 +37,9 @@
   .activated_link {
     border-bottom: 2px solid black;
   }
+  .nav_bar a:hover {
+    background-color: #555;
+}
   
   /* Profile Image */
   img {

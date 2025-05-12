@@ -62,26 +62,6 @@ app.use('/api/post', postRoutes);   // post creation and retrieval
 app.get("/api", (req, res) => {
   res.json({ message: "Welcome to Tap in @TU Server!" });
 });
-
-// Create post via session (not used by frontend formData flow)
-app.post('/posts', async (req, res) => {
-  const userID = req.session.userId;
-  const student = await Student.findOne({ _id: userID });
-
-  if (!student) return res.status(404).send('User not found');
-
-  const { subject, content } = req.body;
-
-  try {
-    const post = new Post({ username: student.username, subject, content });
-    await post.save();
-    res.redirect('/home');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error saving post');
-  }
-});
-
 // Get current username (used for session-based UI updates)
 app.get('/username_display', async (req, res) => {
   //req.session.username = student.username;
@@ -116,6 +96,17 @@ app.get('/post_display', async (req, res) => {
   }
 });
 
+router.post('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Logout error:', err);
+      return res.status(500).json({ message: 'Logout failed' });
+    }
+    res.clearCookie('connect.sid');
+    res.status(200).json({ message: 'Logout successful' });
+  });
+});
+
 // Placeholder routes
 app.get('/home', (req, res) => {
   res.send('Welcome to Home!');
@@ -124,60 +115,3 @@ app.get('/home', (req, res) => {
 app.post('/home', (req, res) => {
   res.redirect('/home');
 });
-
-// Login route
-router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-    const user = await Student.findOne({ email });
-
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid email or password' });
-    }
-
-    // Compare entered password with hashed password stored in DB
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid email or password' });
-    }
-
-    // Set session and send response
-    req.session.userId = user._id;
-    req.session.username = student.username;
-    console.log('Session set with userId:', user._id);
-
-    res.status(200).json({ message: 'Login successful', username: student.username });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// Signup route to hash passwords before saving them
-router.post('/signup', async (req, res) => {
-  const { username, email, password } = req.body;
-
-  try {
-    const existingUser = await Student.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'Email is already registered' });
-    }
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = new Student({
-      username,
-      email,
-      password: hashedPassword,
-    });
-
-    await newUser.save();
-    res.status(201).json({ message: 'User created successfully' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Error registering user' });
-  }
-});
-
-module.exports = app;

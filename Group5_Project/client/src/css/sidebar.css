@@ -1,0 +1,149 @@
+/* Left Sidebar */
+
+.sidebar {
+
+    width: 18%;
+
+    min-width: 150px;
+
+    background-color: #333;
+
+    padding: 40px 15px 20px 15px;
+
+    height: 100vh;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    overflow-y: auto;
+
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.username-display {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #ffcc00;
+}
+
+
+ 
+
+.sidebar ul {
+
+    list-style-type: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+ 
+
+.sidebar li {
+
+    margin-bottom: 20px;
+
+}
+
+ 
+
+.sidebar a {
+
+    color: #ffcc00; /* gold */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+ 
+
+.logo {
+
+    width: 60px;
+
+    height: 60px;
+
+    background-color: #ffcc00;
+
+    border-radius: 50%;
+
+    margin-bottom: 20px;
+
+}
+
+ 
+
+/* Shared Button Style */
+
+.post-btn {
+
+    background-color: #ffcc00;
+
+    color: black;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    font-size: 16px;
+
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+}
+
+ 
+
+/* Post Box */
+
+.post-box {
+
+    background-color: #333;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    text-align: center;
+
+}
+
+ 
+
+/* Posts Placeholder */
+
+.post-placeholder {
+
+    background-color: #ffffff;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    word-wrap: break-word;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+}
