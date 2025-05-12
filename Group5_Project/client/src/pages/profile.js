@@ -33,7 +33,7 @@ return (
     </div>
 
     <img src={logo} alt="User Profile" />
-    <h2><strong>({username})</strong></h2>
+    <h2><strong>{username}</strong></h2>
 
     <button>
       <Link to="/editprofile">Edit Profile</Link>

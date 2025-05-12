@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/posts.css';
 
 function Post({ username, subject, content, imagePath }) {
-  const imageUrl = imagePath ? `http://localhost:5000/api/post/image/${imagePath}` : null;
+  const imageUrl = imagePath ? `https://tap-in.onrender.com/api/post/image/${imagePath}` : null;
 
   return (
     <div className="post-container" style={styles.card}>

@@ -8,7 +8,7 @@ function Account(){
         const [username, setUsername] = useState('');
       
       useEffect(() => {
-        fetch('http://localhost:5000/username_display', {
+        fetch('https://tap-in.onrender.com/username_display', {
           method: 'GET',
           credentials: 'include',
         })

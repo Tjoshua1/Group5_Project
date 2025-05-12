@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/rightSidebar.css';
 
 function RightSidebar({ onSearch }) {
+  const [oldPosts, setOldPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://tap-in.onrender.com/api/posts/old-posts', { credentials: 'include' })
+      .then((res) => res.json())
+      .then((data) => setOldPosts(data))
+      .catch((err) => console.error('Failed to fetch old posts:', err));
+  }, []);
+
   return (
     <aside className="trending">
       <div className="search-box">
         <input type="text" placeholder="Search" onChange={onSearch} />
       </div>
+
       <div className="trending-box">
-        <h3>Trends for you</h3>
-        <p>Trending topic 1</p>
-        <p>Trending topic 2</p>
-        <p>Trending topic 3</p>
-      </div>
-      <div className="who-to-follow">
-        <h3>Who to follow</h3>
-        <p>Suggested user 1</p>
-        <p>Suggested user 2</p>
+        <h3>Older Posts</h3>
+        {oldPosts.length === 0 ? (
+          <p>No older posts yet.</p>
+        ) : (
+          oldPosts.map((post) => (
+            <p key={post._id}>{post.subject || post.content}</p>
+          ))
+        )}
       </div>
     </aside>
   );

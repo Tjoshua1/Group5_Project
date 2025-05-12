@@ -27,7 +27,8 @@
         "react-dom": "^16.8.0",
         "react-scripts": "^5.0.1",
         "stream-browserify": "^3.0.0",
-        "util": "^0.12.5"
+        "util": "^0.12.5",
+         "connect-mongo": "^5.0.0"
     },
     "engines": {
         "node": ">=14.0.0"

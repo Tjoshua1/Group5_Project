@@ -18,7 +18,7 @@ function CreatePosts() {
   useEffect(() => {
     const fetchUsername = async () => {
       try {
-        const response = await fetch('http://localhost:5000/username_display', {
+        const response = await fetch('https://tap-in.onrender.com/username_display', {
           credentials: 'include',
         });
         const data = await response.json();
@@ -47,7 +47,7 @@ function CreatePosts() {
     formData.append('PostImage', image);
 
     try {
-      const response = await fetch('http://localhost:5000/api/post', {
+      const response = await fetch('https://tap-in.onrender.com/api/post', {
         method: 'POST',
         body: formData
       });

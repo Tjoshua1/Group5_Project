@@ -43,11 +43,11 @@ router.post('/', upload.single('PostImage'), async (req, res) => {
 
 router.get('/old-posts', async (req, res) => {
   try {
-    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
+    const oneHourAgo = new Date(Date.now() - 60);
 
     const oldPosts = await Post.find({ createdAt: { $lt: oneHourAgo } })
-      .sort({ createdAt: 1 }) // oldest first
-      .limit(5); // limit to top 5 oldest posts
+      .sort({ createdAt: 1 })
+      .limit(5); 
 
     res.json(oldPosts);
   } catch (err) {
