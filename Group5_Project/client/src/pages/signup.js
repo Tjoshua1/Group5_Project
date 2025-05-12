@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-undef */
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import validate from '../components/Validate';
 import '../css/sign_up.css';
@@ -35,7 +35,7 @@ function SignUp() {
     verifyPassword: '',
   });
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate();  // Initialize useNavigate for redirection
+  const navigate = useNavigate();
 const [loading, setLoading] = useState(false);
 
 
@@ -48,12 +48,12 @@ const [loading, setLoading] = useState(false);
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-  setLoading(true); // Start loading
+  setLoading(true);
 
   const validationErrors = validate(formData, constraints);
   if (!validationErrors) {
     setErrors(validationErrors);
-    setLoading(false); // Stop loading if validation fails
+    setLoading(false);
     return;
   }
 
@@ -72,8 +72,8 @@ const handleSubmit = async (e) => {
     const data = await response.json();
 
     if (response.ok) {
-      alert(`Welcome, ${username}!`);
-      navigate('/home');
+  alert(`Welcome, ${username}!`);
+  navigate('/home');
     } else {
       alert(data.message || 'Signup failed');
     }

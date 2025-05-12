@@ -12,6 +12,10 @@ router.post('/signup', async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: 'Email is already registered' });
     }
+    const existingName = await User.findOne({username});
+    if(existingName){
+      return res.status(401).json({message: 'Username Taken'})
+    }
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       username,
@@ -19,9 +23,11 @@ router.post('/signup', async (req, res) => {
       password: hashedPassword,
     });
     await newUser.save();
+    req.session.userId = newUser._id;
+    req.session.username = username;
     res.status(201).json({ message: 'User created successfully' });
   } catch (err) {
-    console.error('Signup error:', err); // Log the error
+    console.error('Signup error:', err);
     res.status(500).json({ message: 'Error registering user' });
   }
 });
@@ -58,13 +64,24 @@ router.post('/posts', async (req, res) => {
 });
 
 
-//To Delete
-router.delete('/delete-account', async (req, res) => {
-    const { email } = req.body;
-    await User.findOneAndDelete({ email });
-    res.send('Account deleted');
-  });
+  router.delete('/delete-account', async (req, res) => {
+  const { username } = req.body;
 
+  try {
+    const deletedUser = await User.findOneAndDelete({ username});
+
+    if (!deletedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    req.session.destroy(() => {
+  res.clearCookie('connect.sid');
+  res.json({ message: 'Account deleted successfully' });
+});
+  } catch (err) {
+    console.error('Delete error:', err);
+    res.status(500).json({ message: 'Error deleting account' });
+  }
+});
 // To Login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
@@ -81,6 +98,14 @@ router.post('/login', async (req, res) => {
     res.status(200).json({ message: 'Login successful', userId: user._id });
   } catch (err) {
     res.status(500).json({ message: 'Server error' });
+  }
+});
+
+router.get('/username_display', (req, res) => {
+  if (req.session && req.session.username) {
+    return res.json({ username: req.session.username });
+  } else {
+    return res.status(401).json({ message: 'Not logged in' });
   }
 });
 

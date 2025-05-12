@@ -41,6 +41,20 @@ router.post('/', upload.single('PostImage'), async (req, res) => {
   }
 });
 
+router.get('/old-posts', async (req, res) => {
+  try {
+    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
+
+    const oldPosts = await Post.find({ createdAt: { $lt: oneHourAgo } })
+      .sort({ createdAt: 1 }) // oldest first
+      .limit(5); // limit to top 5 oldest posts
+
+    res.json(oldPosts);
+  } catch (err) {
+    console.error('Error fetching old posts:', err);
+    res.status(500).json({ message: 'Failed to fetch old posts' });
+  }
+});
 
 // Get all posts
 router.get('/', async (req, res) => {

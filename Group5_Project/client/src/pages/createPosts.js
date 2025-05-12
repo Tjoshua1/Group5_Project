@@ -100,9 +100,11 @@ function CreatePosts() {
           accept="image/*" 
            name="PostImage"
         />
-        <button type="submit" disabled={isSubmitting}>
+        <Link to="/home">
+                  <button type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Creating Post...' : 'Create Post'}
         </button>
+        </Link>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

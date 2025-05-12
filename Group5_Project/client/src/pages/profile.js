@@ -5,7 +5,7 @@ import '../css/settings.css';
 import logo from '../images/default_profile_img.png';
 
 function Profile() {
-  const [username, setUsername] = useState('');
+    const [username, setUsername] = useState('');
 
 useEffect(() => {
   fetch('http://localhost:5000/username_display', {
@@ -33,7 +33,7 @@ return (
     </div>
 
     <img src={logo} alt="User Profile" />
-    <h2><strong>{username}</strong></h2>
+    <h2><strong>({username})</strong></h2>
 
     <button>
       <Link to="/editprofile">Edit Profile</Link>

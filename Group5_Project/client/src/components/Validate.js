@@ -24,8 +24,7 @@ function Validate() {
       alert("Password must be at least 8 characters long.");
       return false;
     }
-  
-    alert("Welcome!");
+
     return true;
   }
   

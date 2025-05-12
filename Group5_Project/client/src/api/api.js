@@ -84,8 +84,8 @@ export async function changePassword(passwordInfo) {
   return await putRequest('/update-password', passwordInfo);
 }
 
-export async function deleteAccount(email) {
-  return await deleteRequest('/delete-account', { email });
+export async function deleteAccount(username) {
+  return await deleteRequest('/delete-account', { username });
 }
 
 // Exported Post API Functions
